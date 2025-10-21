@@ -79,16 +79,10 @@ services:
         condition: service_healthy
     restart: unless-stopped
 
-  # Remove if you don't use PHP
-  php-fpm:
-    image: php:fpm-alpine
-    volumes:
-      - ./html:/var/www/html:ro
-
   # Replace with your backend image or remove
   example-backend:
-    build: ./examples/nodejs-backend
-    image: evgeniy-khyst/expressjs-helloworld
+    #build: ./examples/nodejs-backend
+    image: qlm_server
     restart: unless-stopped
 
 volumes:
