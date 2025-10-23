@@ -24,7 +24,8 @@ server {
     include /etc/nginx/ssl/{{domain}}.conf;
 
     # error code 497 is created specially for this use case [redirect on the same port from http to https]
-    error_page 497 301 =307 https://$host:$server_port$request_uri;
+    #error_page 497 301 =307 https://$host:$server_port$request_uri;
+    # disabling the above as side-effects are unclear
 
     ssl_dhparam /etc/nginx/ssl/ssl-dhparams.pem;
 
