@@ -25,6 +25,7 @@ services:
       - ./nginx-conf/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx-conf/conf.d:/etc/nginx/conf.d:ro
       - ./html:/var/www/html:ro
+      # use plain dirs instead of volumes here? or non-root ownership of the dirs will cause issues?
       - nginx_conf_ssl:/etc/nginx/ssl
       - letsencrypt_certs:/etc/letsencrypt
       - certbot_acme_challenge:/var/www/certbot
@@ -77,10 +78,16 @@ services:
         condition: service_healthy
     restart: unless-stopped
 
-  # Replace with your backend image or remove
-  example-backend:
-    #build: ./examples/nodejs-backend
+  qlm_server:
+    build: ./qlm_server
     image: qlm_server
+    restart: unless-stopped
+    ports:
+      - "9501:9501"
+
+  mint_server:
+    build: ./mint_server
+    image: mint_server
     restart: unless-stopped
 
 volumes:

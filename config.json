@@ -1,0 +1,36 @@
+{
+  "domains": [
+    {
+      "domain": "q-l-m.com",
+      "email": "quark4@gmail.com",
+      "wwwSubdomain": true,
+      "testCert": false,
+      "rsaKeySize": 4096,
+      "requestHandler": "staticContent"
+    },
+    {
+      "domain": "demo.q-l-m.com",
+      "email": "quark4@gmail.com",
+      "wwwSubdomain": false,
+      "testCert": false,
+      "rsaKeySize": 4096,
+      "requestHandler": "reverseProxy",
+      "upstream": "qlm_server:9500",
+      "websockets": true,
+      "dnsResolver": "127.0.0.11"
+    },
+    {
+      "domain": "mint.q-l-m.com",
+      "email": "quark4@gmail.com",
+      "wwwSubdomain": false,
+      "testCert": false,
+      "rsaKeySize": 4096,
+      "requestHandler": "reverseProxy",
+      "upstream": "mint_server:9600",
+      "websockets": false,
+      "dnsResolver": "127.0.0.11"
+    }
+  ],
+  "dhparamsSize": 2048,
+  "gzip": true
+}
