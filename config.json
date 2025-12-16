@@ -5,7 +5,6 @@
       "email": "quark4@gmail.com",
       "wwwSubdomain": true,
       "testCert": false,
-      "rsaKeySize": 4096,
       "requestHandler": "staticContent"
     },
     {
@@ -13,7 +12,6 @@
       "email": "quark4@gmail.com",
       "wwwSubdomain": false,
       "testCert": false,
-      "rsaKeySize": 4096,
       "requestHandler": "reverseProxy",
       "upstream": "qlm_server:9500",
       "websockets": true,
@@ -24,7 +22,6 @@
       "email": "quark4@gmail.com",
       "wwwSubdomain": false,
       "testCert": false,
-      "rsaKeySize": 4096,
       "requestHandler": "reverseProxy",
       "upstream": "mint_server:9600",
       "websockets": false,

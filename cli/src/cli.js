@@ -60,12 +60,6 @@ const askDomain = async (config, domainName) => {
       default: domainConfig.testCert ?? true,
     },
     {
-      type: 'number',
-      name: 'rsaKeySize',
-      message: 'What is the RSA key size in bits?',
-      default: domainConfig.rsaKeySize || 4096,
-    },
-    {
       type: 'list',
       name: 'requestHandler',
       message: 'How do you want to configure Nginx?',

@@ -22,7 +22,6 @@ for domain in $domains; do
   www_subdomain=$(jq -r --arg domain "$domain" '.domains[] | select(.domain == $domain) | .wwwSubdomain' $config)
   email=$(jq -r --arg domain "$domain" '.domains[] | select(.domain == $domain) | .email' $config)
   test_cert=$(jq -r --arg domain "$domain" '.domains[] | select(.domain == $domain) | .testCert' $config)
-  rsa_key_size=$(jq -r --arg domain "$domain" '.domains[] | select(.domain == $domain) | .rsaKeySize' $config)
 
   mkdir -p "/var/www/certbot/${domain}"
 
@@ -53,8 +52,6 @@ for domain in $domains; do
     echo "Using email ${email}"
   fi
 
-  echo "RSA key size is ${rsa_key_size}"
-
   if [ "$DRY_RUN" = "true" ]; then
     echo "Dry run is enabled"
   else
@@ -65,7 +62,6 @@ for domain in $domains; do
       $www_subdomain_arg \
       $test_cert_arg \
       $email_arg \
-      --rsa-key-size "${rsa_key_size}" \
       --agree-tos \
       --noninteractive \
       --verbose || true
