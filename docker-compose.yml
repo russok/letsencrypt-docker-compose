@@ -89,6 +89,8 @@ services:
     build: ./mint_server
     image: mint_server
     restart: unless-stopped
+    ports:
+      - "9601:9601"
 
 volumes:
   nginx_conf_ssl:
