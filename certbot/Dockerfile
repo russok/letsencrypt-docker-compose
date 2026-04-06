@@ -1,4 +1,4 @@
-FROM certbot/certbot:v2.4.0
+FROM certbot/certbot:latest
 
 RUN apk add --no-cache jq
 
