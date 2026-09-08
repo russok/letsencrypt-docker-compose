@@ -92,6 +92,7 @@ services:
     restart: unless-stopped
     ports:
       - "9601:9601"
+      - "9602:9602"
 
 volumes:
   nginx_conf_ssl:
