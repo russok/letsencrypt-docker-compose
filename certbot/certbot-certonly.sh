@@ -53,7 +53,16 @@ for domain in $domains; do
   fi
 
   if [ "$DRY_RUN" = "true" ]; then
-    echo "Dry run is enabled"
+    echo "Dry run: " certbot certonly \
+      --webroot \
+      -w "/var/www/certbot/${domain}" \
+      -d "$domain" \
+      $www_subdomain_arg \
+      $test_cert_arg \
+      $email_arg \
+      --agree-tos \
+      --noninteractive \
+      --verbose
   else
     certbot certonly \
       --webroot \
